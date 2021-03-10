@@ -1,0 +1,7 @@
+__init__.py
+__pycache__/*
+data/*
+logs/*
+server_code/__init__.py
+server_code/__pycache__/*
+.vscode/*
