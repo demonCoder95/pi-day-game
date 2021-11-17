@@ -36,7 +36,16 @@ class DBHandler:
 
 		if not self._check_table_exists():
 			self.cur.execute("CREATE TABLE " + player_table_name + player_table_schema)
+		self._reset_online_status()
 		game_logger.debug("Game database initialized successfully.")
+
+	def _reset_online_status(self):
+		"""Need to reset the online status of each player,
+		when the server boots up after a shutdown"""
+		query = "UPDATE {} SET online_status='OFFLINE'".format(player_table_name)
+		self.cur.execute(query)
+		self.conn.commit()
+		game_logger.info("Player status reset to OFFLINE for all players")
 
 	def create_new_player(self, player_id, game_id, login_time, current_task, hints_left, points, online_status, hint_used):
 		values_str = "('{}', '{}', '{}', {}, {}, {}, '{}', '{}')".format(

@@ -13,7 +13,7 @@ import threading
 import time
 import queue
 from pyfiglet import Figlet
-
+ 
 #TODO: add strong exception handling EVERYWHERE
 
 # Setup game logging
