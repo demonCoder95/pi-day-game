@@ -16,7 +16,7 @@ from pyfiglet import Figlet
 from server_code.pi_day_game import PiDayGame
 from server_code.my_time import show_time_since, show_time_to
 
-event_end_str = "Mon Mar 22 17:00:00 2021"
+event_end_str = "Mon Mar 21 17:00:00 2022"
 
 # Global to hold the welcome message
 welcome_message = Figlet().renderText("\nWelcome to Pi-Day Event!")
@@ -340,6 +340,9 @@ class Game:
 			for each_token in user_input.split(" "):
 				# determine fishy input - this will only match [a-ZA-Z0-9]
 				if  not each_token.isalnum():
+					# for special input that contains nonalpha-num characters
+					if each_token == "time_left" or each_token == "my_id":
+						break
 					# for non-blank fishy input, we notify the user
 					if not each_token == "":
 						self._sendmsg("Invalid characters in input. Try again.\n")

@@ -25,8 +25,8 @@ game_logger = logging.getLogger(__name__)
 
 # Event starting and ending times
 # TODO: Move these into a configuration file for the project
-event_start_str = "Mon Mar 15 09:00:00 2021"
-event_end_str = "Mon Mar 22 17:00:00 2021"
+event_start_str = "Mon Mar 14 13:00:00 2022"
+event_end_str = "Mon Mar 21 17:00:00 2022"
 
 def game_handler_thread(client_conn, client_addr, db_query_q, db_resp_q, db_query_lock, event_started, event_ended):
 	"""The thread which will run one client connection"""	
